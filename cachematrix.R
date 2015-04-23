@@ -8,7 +8,7 @@
 ## Synopsis:
 
 ## my_matrix = matrix(rnorm(100),nrow = 10, ncol = 10)
-## my_cm     = cacheMatrix(my_matrix)
+## my_cm    <- cacheMatrix(my_matrix)
 ## solution <- cacheSolve(cm)  # same as solve(my_matrix)
 ## again    <- cacheSolve(cm)  # now quickly retrieved from cache
 ##
@@ -20,15 +20,15 @@
 ## so code that repeatedly requires the solution to a matrix
 ## inversion may run slowly and inefficiently.
 
-## This module provides a method of creating cacheMatrix objects
-## from a native R matrix object and cacheSolve(obj,...) can now
-## be used to prevent repeat calls to the expensive solve() function.
+## This module provides a method of creating a cacheMatrix object
+## from a native R matrix object and a cacheSolve(obj,...) method
+## to prevent repeat calls to the expensive solve() function.
 
 ## The object provides four getter/setter methods used internally
 ##  obj$get         - gets the original matrix data
 ##  obj$set         - sets a new matrix and forgets the cached solution
 ##  obj$get_inverse - gets the solution to solve(obj$get) or NULL 
-##                    if not yet compouted
+##                    if not yet computed
 ##  obj$set_inverse - sets the solution to solve(obj$get) if/when found
 
 #################################################################
